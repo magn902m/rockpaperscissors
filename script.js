@@ -6,8 +6,6 @@ window.addEventListener("DOMContentLoaded", start);
 // Run the user selection
 function start() {
   console.log("start");
-  document.querySelector("#gamefield").removeEventListener("click", start);
-  document.querySelector("#buttons").removeEventListener("click", start);
   userSelection();
 }
 
@@ -39,6 +37,7 @@ function compSelection() {
 
 // User choice
 function userSelection() {
+  resetGame();
   rockBtn.addEventListener("click", userPicksRock);
   paperBtn.addEventListener("click", userPicksPaper);
   scissorsBtn.addEventListener("click", userPicksScissors);
@@ -57,23 +56,21 @@ function userPicksRock() {
   setTimeout(function () {
     userHand.className = "";
     userHand.classList.add("player", "rock");
-  }, 1700);
 
-  setTimeout(function () {
     compHand.className = "";
     compHand.classList.add("player", compChoice);
-  }, 1700);
 
-  if (compChoice == userChoice) {
-    console.log(`Comp: ${compChoice}, User: ${userChoice}, Is a draw`);
-    showDraw();
-  } else if (compChoice == options[2]) {
-    console.log(`Comp: ${compChoice}, User: ${userChoice}, You win`);
-    showWin();
-  } else {
-    console.log(`Comp: ${compChoice}, User: ${userChoice}, You lose`);
-    showLose();
-  }
+    if (compChoice == userChoice) {
+      console.log(`Comp: ${compChoice}, User: ${userChoice}, Is a draw`);
+      showDraw();
+    } else if (compChoice == options[2]) {
+      console.log(`Comp: ${compChoice}, User: ${userChoice}, You win`);
+      showWin();
+    } else {
+      console.log(`Comp: ${compChoice}, User: ${userChoice}, You lose`);
+      showLose();
+    }
+  }, 1700);
 }
 
 function userPicksPaper() {
@@ -86,23 +83,21 @@ function userPicksPaper() {
   setTimeout(function () {
     userHand.className = "";
     userHand.classList.add("player", "paper");
-  }, 1700);
 
-  setTimeout(function () {
     compHand.className = "";
     compHand.classList.add("player", compChoice);
-  }, 1700);
 
-  if (compChoice == userChoice) {
-    console.log(`Comp: ${compChoice}, User: ${userChoice}, Is a draw`);
-    showDraw();
-  } else if (compChoice == options[0]) {
-    console.log(`Comp: ${compChoice}, User: ${userChoice}, You win`);
-    showWin();
-  } else {
-    console.log(`Comp: ${compChoice}, User: ${userChoice}, You lose`);
-    showLose();
-  }
+    if (compChoice == userChoice) {
+      console.log(`Comp: ${compChoice}, User: ${userChoice}, Is a draw`);
+      showDraw();
+    } else if (compChoice == options[0]) {
+      console.log(`Comp: ${compChoice}, User: ${userChoice}, You win`);
+      showWin();
+    } else {
+      console.log(`Comp: ${compChoice}, User: ${userChoice}, You lose`);
+      showLose();
+    }
+  }, 1700);
 }
 
 function userPicksScissors() {
@@ -115,23 +110,21 @@ function userPicksScissors() {
   setTimeout(function () {
     userHand.className = "";
     userHand.classList.add("player", "scissors");
-  }, 1700);
 
-  setTimeout(function () {
     compHand.className = "";
     compHand.classList.add("player", compChoice);
-  }, 1700);
 
-  if (compChoice == userChoice) {
-    console.log(`Comp: ${compChoice}, User: ${userChoice}, Is a draw`);
-    showDraw();
-  } else if (compChoice == options[1]) {
-    console.log(`Comp: ${compChoice}, User: ${userChoice}, You win`);
-    showWin();
-  } else {
-    console.log(`Comp: ${compChoice}, User: ${userChoice}, You lose`);
-    showLose();
-  }
+    if (compChoice == userChoice) {
+      console.log(`Comp: ${compChoice}, User: ${userChoice}, Is a draw`);
+      showDraw();
+    } else if (compChoice == options[1]) {
+      console.log(`Comp: ${compChoice}, User: ${userChoice}, You win`);
+      showWin();
+    } else {
+      console.log(`Comp: ${compChoice}, User: ${userChoice}, You lose`);
+      showLose();
+    }
+  }, 1700);
 }
 
 function showWin() {
@@ -160,4 +153,7 @@ function resetGame() {
   document.querySelector(".player").classList.add("player");
   document.querySelector("#gamefield").addEventListener("click", start);
   document.querySelector("#buttons").addEventListener("click", start);
+
+  document.querySelector("#gamefield").removeEventListener("click", start);
+  document.querySelector("#buttons").removeEventListener("click", start);
 }

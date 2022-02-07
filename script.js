@@ -130,19 +130,19 @@ function userPicksScissors() {
 function showWin() {
   document.querySelector("#win").classList.remove("hidden");
   document.querySelector("#gamefield").addEventListener("click", resetGame);
-  //   document.querySelector("#buttons").addEventListener("click", resetGame);
+  document.querySelector("#buttons").addEventListener("click", resetGame);
 }
 
 function showLose() {
   document.querySelector("#lose").classList.remove("hidden");
   document.querySelector("#gamefield").addEventListener("click", resetGame);
-  //   document.querySelector("#buttons").addEventListener("click", resetGame);
+  document.querySelector("#buttons").addEventListener("click", resetGame);
 }
 
 function showDraw() {
   document.querySelector("#draw").classList.remove("hidden");
   document.querySelector("#gamefield").addEventListener("click", resetGame);
-  //   document.querySelector("#buttons").addEventListener("click", resetGame);
+  document.querySelector("#buttons").addEventListener("click", resetGame);
 }
 
 function resetGame() {
@@ -153,6 +153,8 @@ function resetGame() {
   document.querySelector(".player").classList.add("player");
   document.querySelector("#gamefield").addEventListener("click", start);
   document.querySelector("#buttons").addEventListener("click", start);
+
+  document.querySelector("#texts").classList.remove = "";
 
   document.querySelector("#gamefield").removeEventListener("click", start);
   document.querySelector("#buttons").removeEventListener("click", start);
